@@ -2,6 +2,7 @@ import useLocalStorageState from "./useLocalStorageState";
 import shortid from "shortid";
 
 export default function useTodoState(initialTodos) {
+  // get items from local storage
   const [todos, setTodos] = useLocalStorageState("todos", initialTodos);
 
   const addTodo = (newTodoText) => {
