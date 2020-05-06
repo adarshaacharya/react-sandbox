@@ -4,6 +4,7 @@ import Person from "./Person";
 const Family = (props) => {
   return (
     <div className="family">
+      <p>I'm inside Family.</p>
       <Person />
     </div>
   );

@@ -6,7 +6,7 @@ export default class App extends Component {
   render() {
     return (
       <MyProvider>
-        <p>I'm the App.</p>
+        <p>I'm inside App.</p>
         <Family/>
       </MyProvider>
     );
