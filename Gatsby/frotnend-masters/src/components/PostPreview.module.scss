@@ -1,0 +1,14 @@
+article {
+  border-bottom: 1px solid #ddd;
+  margin-top: 0.75rem;
+  padding-bottom: 1rem;
+  background-color: #fafafa;
+  :first-of-type {
+    margin-top: 1rem;
+  }
+
+  .link {
+    display: inline-block;
+    font-size: 0.875rem;
+  }
+}
