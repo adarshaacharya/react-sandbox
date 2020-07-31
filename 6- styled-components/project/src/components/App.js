@@ -5,15 +5,14 @@ import { ThemeProvider } from 'styled-components'
 import GlobalStyles from 'styles/GlobalStyles'
 import Home from 'components/pages/Home'
 import Login from 'components/pages/Login'
-
 import LightTheme from 'themes/light'
 import DarkTheme from 'themes/dark'
 
 function App() {
-  const [theme, setTheme] = useState(LightTheme)
+  const [theme, setTheme] = useState(LightTheme) 
 
   return (
-    <ThemeProvider
+    <ThemeProvider 
       theme={{
         ...theme,
         setTheme: () => {

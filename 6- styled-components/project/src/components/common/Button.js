@@ -7,7 +7,7 @@ const largeStyles = ({ large }) => {
       padding: 10px;
       border-radius: 5px;
       font-size: 1.5em;
-    `
+    ` 
   } else {
     return css`
       padding: 8px;
@@ -15,7 +15,7 @@ const largeStyles = ({ large }) => {
       font-size: 1em;
     `
   }
-}
+} 
 
 const Button = styled.button`
   color: white;
@@ -40,5 +40,5 @@ Button.propTypes = {
   large: PropTypes.bool,
   secondary: PropTypes.bool,
 }
-
+ 
 export { Button }
