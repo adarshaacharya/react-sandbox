@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'store/modules/combineReducers';
-
 import { getPokemon } from 'store/modules/pokemon/pokemon.action';
 
 const Pokemon = () => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const pokemonState = useSelector((state: RootState) => state.pokemon);
 
   const [pokemonName, setPokemonName] = useState('');
@@ -21,6 +20,8 @@ const Pokemon = () => {
 
         <button onClick={handleSubmit}>Search</button>
       </div>
+
+      {pokemonState.loading && <p>Loading pokemons..</p>}
 
       {pokemonState.pokemon && (
         <div>

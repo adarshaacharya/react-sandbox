@@ -1,30 +1,29 @@
-import { Dispatch } from 'redux';
 import axios from 'axios';
-
+import { Dispatch } from 'redux';
 import {
-  POKEMON_LOADING,
-  POKEMON_FAIL,
-  POKEMON_SUCCESS,
-  PokemonDispatchTypes,
+  PokemonActions,
+  FETCH_POKEMON_FAIL,
+  FETCH_POKEMON_REQUEST,
+  FETCH_POKEMON_SUCCESS,
 } from './pokemon.types';
 
 export const getPokemon = (pokemon: string) => async (
-  dispatch: Dispatch<PokemonDispatchTypes>
+  dispatch: Dispatch<PokemonActions>
 ) => {
   try {
     dispatch({
-      type: POKEMON_LOADING,
+      type: FETCH_POKEMON_REQUEST,
     });
 
     const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
     dispatch({
-      type: POKEMON_SUCCESS,
+      type: FETCH_POKEMON_SUCCESS,
       payload: res.data,
     });
   } catch (error) {
     dispatch({
-      type: POKEMON_FAIL,
+      type: FETCH_POKEMON_FAIL,
     });
   }
 };
