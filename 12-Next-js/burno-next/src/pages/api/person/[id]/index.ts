@@ -12,7 +12,7 @@ export default async function getPersonbyId(
       'UPDATE person SET name=?, email =? WHERE id=?'
     );
 
-    const result = statement.run(req.body.name, req.body.email, req.query.id);
+    const result = await statement.run(req.body.name, req.body.email, req.query.id);
     (await result).finalize();
   }
 
