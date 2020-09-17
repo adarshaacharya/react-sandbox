@@ -20,6 +20,9 @@ function Layout({ children }: { children: React.ReactNode }) {
         <Link href="/list">
           <a>List</a>
         </Link>
+        <Link href="/vehicles">
+          <a>Vehicles</a>
+        </Link>
       </nav>
       <main>{children}</main>
     </>
