@@ -1,8 +1,17 @@
-import { AppProps } from 'next/app'
-import 'styles/globals.css'
+import { AppProps } from 'next/app';
+import Nav from 'src/components/nav';
+import theme from 'theme';
+import { ThemeProvider } from 'theme-ui';
 
-function MyApp({ Component, pageProps } : AppProps) {
-  return <Component {...pageProps} />
+function App({ Component, pageProps }: AppProps) {
+  return (
+    <ThemeProvider theme={theme}>
+      <div>
+        <Nav />
+        <Component {...pageProps} />
+      </div>
+    </ThemeProvider>
+  );
 }
 
-export default MyApp
+export default App;

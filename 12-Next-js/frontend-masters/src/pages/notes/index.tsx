@@ -1,32 +1,36 @@
-import React from 'react';
+/** @jsx jsx */
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-
-const noteId = 2;
+import { jsx } from 'theme-ui';
 
 export default () => {
-  const router = useRouter();
-
   const notes = new Array(15)
     .fill(1)
-    .map((_, i) => ({ id: i, title: `Note: ${i}` }));
+    .map((_, i) => ({ id: i, title: `This is my note ${i}` }));
 
   return (
-    <div>
-      <h1>Notes</h1>
+    <div sx={{ variant: 'containers.page' }}>
+      <h1>My Notes</h1>
 
-      {notes.map((note) => (
-        <div>
-          <Link key={note.id} href="/notes/[id]" as={`/notes/${note.id}`}>
-            <a>
-              <strong>{note.title}</strong>
-            </a>
-          </Link>
-        </div>
-      ))}
-      <button onClick={(e) => router.push(`/notes/[id]`, `/notes/${noteId}`)}>
-        Programmatic Router
-      </button>
+      <div
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
+      >
+        {notes.map((note) => (
+          <div sx={{ width: '33%', p: 2 }}>
+            <Link key={note.id} href="/notes/[id]" as={`/notes/${note.id}`}>
+              <a sx={{ textDecoration: 'none', cursor: 'pointer' }}>
+                <div sx={{ variant: 'containers.card' }}>
+                  <strong>{note.title}</strong>
+                </div>
+              </a>
+            </Link>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
