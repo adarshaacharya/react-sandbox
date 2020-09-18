@@ -11,9 +11,25 @@ interface IVehicles {
   ownerId: number;
 }
 
-const vehicles = ({ data }: any) => {
-  console.log(data)
-  const columns = [data];
+const vehicles = ({ data }: { data: IVehicles[] }) => {
+
+const columns = [
+  {
+    title: 'Brand',
+    dataIndex: 'brand',
+    key: 'brand',
+  },
+  {
+    title: 'Model',
+    dataIndex: 'model',
+    key: 'model',
+  },
+  {
+    title: 'OwnerId',
+    dataIndex: 'ownerId',
+    key: 'ownerId',
+  },
+];
 
   return (
     <>
@@ -36,6 +52,7 @@ const vehicles = ({ data }: any) => {
 //   };
 // };
 
+
 vehicles.getInitialProps = async (context: NextPageContext) => {
   const data = await getData('http://localhost:3000/api/vehicles', context);
   return {
@@ -43,7 +60,13 @@ vehicles.getInitialProps = async (context: NextPageContext) => {
   };
 };
 
+
+
+
 export default vehicles;
+
+
+
 
 // const vehicles = ({ data }: any) => {
 //   return (
@@ -53,3 +76,5 @@ export default vehicles;
 //     </Layout>
 //   );
 // };
+
+
