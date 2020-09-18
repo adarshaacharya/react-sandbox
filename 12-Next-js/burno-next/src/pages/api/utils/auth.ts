@@ -6,11 +6,11 @@ export const authenticated = (fn: NextApiHandler) => async (
   req: NextApiRequest,
   res: NextApiResponse
 ) => {
-  const token = req.headers.authorization;
+  const token = req.cookies.auth; // key used as cookie while login
 
   // check if token exists
   if (!token) {
-    return res.status(401).json({ msg: 'No token, authorization denied' });
+    return res.status(401).json({ msg: 'No token, authorization denied' }); // actually useful
   }
 
   const decoded = jwt.verify(token, `${process.env.JWT_SECRET}`);
