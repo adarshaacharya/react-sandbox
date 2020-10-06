@@ -19,7 +19,7 @@ export default ({ note }: { note: INote }) => {
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const { params, res } = context;
-  const response = await fetch(`http://localhost:3000/api/note/${params?.id}`);
+  const response = await fetch(`${process.env.END_POINT}/api/note/${params?.id}`);
 
   // so much power!
   if (!response.ok) {
